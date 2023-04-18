@@ -11,6 +11,7 @@ const Actions = ({ play, canPlay }) => {
         onPress={() => play(1)}
       >
         <FontAwesome5 name="hand-rock" size={32} color={"#6a5300"} />
+        <Text>Rock</Text>
       </Pressable>
       <Pressable
         disabled={!canPlay}
@@ -18,6 +19,7 @@ const Actions = ({ play, canPlay }) => {
         onPress={() => play(2)}
       >
         <FontAwesome5 name="hand-paper" size={32} color={"#6a5300"} />
+        <Text>Paper</Text>
       </Pressable>
       <Pressable
         disabled={!canPlay}
@@ -30,6 +32,7 @@ const Actions = ({ play, canPlay }) => {
           color={"#6a5300"}
           style={{ transform: [{ rotate: "67deg" }] }}
         />
+        <Text>Scissors</Text>
       </Pressable>
     </View>
   );
@@ -43,12 +46,12 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   actionButtons: {
-    width: 64,
-    height: 64,
+    width: 70,
+    height: 70,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#f9d835",
-    borderRadius: 32,
+    borderRadius: 40,
   },
 });
 

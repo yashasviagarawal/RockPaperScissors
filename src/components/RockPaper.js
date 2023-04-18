@@ -43,19 +43,19 @@ export default function RockPaper() {
       setResult(resultString);
     }, 300);
 
-    //animation hide
-    Animated.sequence([
-      Animated.timing(fadeAnimation, {
-        toValue: 0,
-        duration: 300,
-        useNativeDriver: true,
-      }),
-      Animated.timing(fadeAnimation, {
-        toValue: 1,
-        duration: 300,
-        useNativeDriver: true,
-      }),
-    ]).start();
+    // animation hide
+    // Animated.sequence([
+    //   Animated.timing(fadeAnimation, {
+    //     toValue: 0,
+    //     duration: 300,
+    //     useNativeDriver: true,
+    //   }),
+    //   Animated.timing(fadeAnimation, {
+    //     toValue: 1,
+    //     duration: 300,
+    //     useNativeDriver: true,
+    //   }),
+    // ]).start();
 
     //disable action when animation running
     setCanPlay(false);
@@ -66,11 +66,11 @@ export default function RockPaper() {
 
   //return the view
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container,result===''||result==='Draw'?styles.resultDraw:result==='Win'?styles.resultWin:styles.resultLose]}>
       <View style={styles.content}>
         <View style={styles.result}>
           <Animated.Text
-            style={[styles.resultText,]}
+            style={[styles.resultText]}
           >
             {result}
           </Animated.Text>
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     marginBottom: 5,
-    backgroundColor: "#e8eaed",
+    
   },
   result: {
     height: 100,
@@ -122,4 +122,13 @@ const styles = StyleSheet.create({
     fontSize: 48,
     fontWeight: "bold",
   },
+  resultLose:{
+    backgroundColor:'rgba(255,0,0,0.4)'
+  },
+  resultWin:{
+    backgroundColor:'rgba(0,135,255,0.4)'
+  },
+  resultDraw:{
+    backgroundColor:'rgba(255,245,202,0.4)'
+  }
 });
